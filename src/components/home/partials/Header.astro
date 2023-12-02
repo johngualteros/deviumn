@@ -1,0 +1,88 @@
+---
+title: "Header"
+summary: "Header"
+---
+
+<header>
+    <div class="logo">
+        <h1>M;</h1>
+    </div>
+
+    <div class="buttons">
+        <button class="btn">SIGN IN NOW</button>
+        <button class="btn2"></button>
+    </div>
+</header>
+
+<style>
+	header {
+		align-items: center;
+		display: flex;
+		height: 4rem;
+		justify-content: space-between;
+		padding: 4rem 5rem;
+		position: fixed;
+		top: 0;
+		width: 100%;
+		background-color: rgba(0, 0, 0, 0.017);
+		z-index: 100;
+	}
+
+	header > .logo {
+		background-color: #23201f;
+		padding: 15px;
+		border-radius: 50%;
+		> h1 {
+			color: #f9f4da;
+			font-size: 2rem;
+			font-weight: 900;
+			margin: 0;
+		}
+	}
+
+	.buttons {
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+		max-width: 300px;
+		max-height: 100px;
+		display: block;
+		position: relative;
+	}
+
+	.btn,
+	.btn2 {
+		text-align: center;
+		color: rgba(255, 255, 255, 0.9);
+		border-radius: 5px;
+		background: linear-gradient(-45deg, #ffa63d, #ff3d77, #338aff, #3cf0c5);
+		background-size: 600%;
+		animation: anime 16s linear infinite;
+		border: none;
+		padding: 15px 25px;
+		font-weight: 900;
+	}
+
+	.btn2 {
+		position: absolute;
+		z-index: -1;
+		top: 0;
+		left: 0;
+		right: 0;
+		bottom: 0;
+		filter: blur(30px);
+		opacity: 0.8;
+	}
+
+	@keyframes anime {
+		0% {
+			background-position: 0% 50%;
+		}
+		50% {
+			background-position: 100% 50%;
+		}
+		100% {
+			background-position: 0% 50%;
+		}
+	}
+</style>
