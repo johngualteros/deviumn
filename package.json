@@ -11,7 +11,15 @@
   },
   "dependencies": {
     "@astrojs/check": "^0.3.1",
+    "@astrojs/vue": "^3.0.4",
+    "@tresjs/cientos": "^3.6.0",
+    "@tresjs/core": "^3.5.1",
     "astro": "^3.6.4",
-    "typescript": "^5.3.2"
+    "three": "^0.159.0",
+    "typescript": "^5.3.2",
+    "vue": "^3.3.9"
+  },
+  "devDependencies": {
+    "@types/three": "^0.159.0"
   }
 }
