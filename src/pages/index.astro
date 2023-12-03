@@ -9,7 +9,7 @@ import Canvas  from '../components/home/3d/Canvas.jsx';
 	<Header />
 	<main>
 		<h1>
-			MEDIUMN<span>.dev</span>
+			DEDIUMN<span>.dev</span>
 		</h1>
 		<p>The modern blog for Angular Developers</p>
 		<div class="badge">
@@ -37,6 +37,19 @@ import Canvas  from '../components/home/3d/Canvas.jsx';
 		</div>
 	</div>
 	<Latest />
+	<!-- subscribe -->
+	<section class="subscribe-section">
+		<div class="subscribe-container">
+			<h1>Subscribe to Deviumn Updates</h1>
+			<p>
+				A newsletter from Deviumn covering engineering and technology to help specialized for Angular Developers. and updated from the community
+			</p>
+			<div class="subscribe-form">
+				<input type="text" placeholder="Write yor email here" />
+				<button>Subscribe</button>
+			</div>
+		</div>
+	</section>
 </Layout>
 
 <style>
@@ -82,7 +95,7 @@ import Canvas  from '../components/home/3d/Canvas.jsx';
 	}
 
 	.container-moon {
-		height: 100vh;
+		height: auto;
 		display: grid;
 		grid-template-columns: 40% auto;
 		grid-template-rows: 1fr;
@@ -137,10 +150,69 @@ import Canvas  from '../components/home/3d/Canvas.jsx';
 		color: #fff;
 		background-color: rgba(0, 139, 255, 0.2);
 		font-size: 1rem;
+		cursor: pointer;
 	}
 	@keyframes textclip {
 		to {
 			background-position: 200% center;
+		}
+	}
+
+	.subscribe-section {
+		background-color: #1a1a1a;
+		padding: 50px 0px;
+		text-align: center;
+		.subscribe-container {
+			width: 80%;
+			margin: 0 auto;
+			> h1 {
+				font-family: 'Nova Square', sans-serif;
+				font-size: 2rem;
+				color: #fff;
+				margin-bottom: 20px;
+			}
+
+			> p {
+				font-family: 'Roboto', sans-serif;
+				font-weight: 300;
+				font-size: 1rem;
+				color: #949494;
+				margin-bottom: 20px;
+				max-width: 50%;
+				margin: 0 auto;
+			}
+
+			.subscribe-form {
+				display: flex;
+				align-items: center;
+				justify-content: space-between;
+				width: 450px;
+				margin: 40px auto 20px auto;
+				padding: 10px 20px;
+				border: 1px solid #96DCFF;
+				border-radius: 40px;
+
+				> input {
+					width: 70%;
+					border: none;
+					outline: none;
+					background-color: transparent;
+					color: #fff;
+					font-size: 1rem;
+				}
+
+				> button {
+					width: 30%;
+					border: none;
+					outline: none;
+					background-color: #008BFF;
+					color: #fff;
+					font-size: 1rem;
+					padding: 10px 20px;
+					border-radius: 40px;
+					cursor: pointer;
+				}
+			}
 		}
 	}
 </style>
