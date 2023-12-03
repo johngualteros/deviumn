@@ -24,7 +24,7 @@ const App = () => {
       shadows
       camera={{ position: [0, 0, 15], fov: 50, near: 1, far: 30 }}
       gl={{ antialias: true }}
-      style={{ width: '1000px', height: '1000px' }}
+      style={{ height: '1000px' }}
     >
       <OrbitControls enableZoom={false} />
       <ambientLight intensity={0.5} />

@@ -17,6 +17,20 @@ import Canvas  from '../components/home/3d/Canvas.jsx';
 	</main>
 	<div class="container-moon">
 		<Canvas client:load/>
+		<div class="mision-container">
+			<h1>DEDICATED FOR ANGULAR DEVELOPERS</h1>
+			<div class="paragraph">
+				<p>
+					We are a community of developers who love Angular and we want to share
+					our knowledge with the world.
+	
+					Our Mission is to create a place where Angular developers can share
+					their knowledge and learn from each other.
+	
+					With the best practices and the latest technologies, we want to help
+				</p>
+			</div>
+		</div>
 	</div>
 </Layout>
 
@@ -64,5 +78,55 @@ import Canvas  from '../components/home/3d/Canvas.jsx';
 
 	.container-moon {
 		height: 100vh;
+		display: grid;
+		grid-template-columns: 40% auto;
+		grid-template-rows: 1fr;
+
+		.mision-container {
+			z-index: 1;
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			flex-direction: column;
+			padding: 0 30px;
+
+			> h1 {
+				font-size: 5rem;
+				text-transform: uppercase;
+				background-image: linear-gradient(
+					-225deg,
+					#008BFF 0%,
+					#1300FF 29%,
+					#9BC8FF 67%,
+					#EE0FF5 100%
+				);
+				background-size: auto auto;
+				background-clip: border-box;
+				background-size: 200% auto;
+				color: #fff;
+				background-clip: text;
+				text-fill-color: transparent;
+				-webkit-background-clip: text;
+				-webkit-text-fill-color: transparent;
+				animation: textclip 2s linear infinite;
+				display: inline-block;
+			}
+
+			.paragraph {
+				padding: 0px 120px 0px 0px;
+				> p {
+					font-family: 'Roboto', sans-serif;
+					font-weight: 300;
+					 font-size: 1.2rem;
+					color: #f9f4da;
+					line-height: 30px;
+				}
+			}
+		}
+	}
+	@keyframes textclip {
+		to {
+			background-position: 200% center;
+		}
 	}
 </style>
