@@ -50,6 +50,16 @@ import Canvas  from '../components/home/3d/Canvas.jsx';
 			</div>
 		</div>
 	</section>
+
+	<section class="start-now">
+		<h1>Start following and see Deviumn today</h1>
+		<div class="blur"></div>
+	</section>
+
+	<section class="footer">
+		<h1>DEVIUMN<span>.dev</span></h1>
+		<p>© 2023 Deviumn. All rights reserved.</p>
+	</section>
 </Layout>
 
 <style>
@@ -114,8 +124,8 @@ import Canvas  from '../components/home/3d/Canvas.jsx';
 				background-image: linear-gradient(
 					-225deg,
 					#008BFF 0%,
-					#1300FF 29%,
-					#2960a3 67%,
+					#0073ff 29%,
+					#2993a3 67%,
 					#0FE7F5 100%
 				);
 				background-size: auto auto;
@@ -159,9 +169,11 @@ import Canvas  from '../components/home/3d/Canvas.jsx';
 	}
 
 	.subscribe-section {
-		background-color: #1a1a1a;
+		background-color: #0c0f14;
 		padding: 50px 0px;
 		text-align: center;
+		position: relative;
+		z-index: 11 !important; 
 		.subscribe-container {
 			width: 80%;
 			margin: 0 auto;
@@ -215,4 +227,61 @@ import Canvas  from '../components/home/3d/Canvas.jsx';
 			}
 		}
 	}
+
+	.start-now {
+	padding: 100px 0px;
+	text-align: center;
+	position: relative;
+
+	> h1 {
+		font-family: 'Roboto', sans-serif;
+		font-size: 4rem;
+		color: #fff;
+		max-width: 40%;
+		margin: 0 auto;
+		font-weight: 400;
+		margin-bottom: 20px;
+	}
+
+	.blur {
+		background-image: linear-gradient(
+		-225deg,
+		#008BFF 0%,
+		#0FE7F5 100%
+		);
+		width: 80%;
+		height: 200px;
+		display: block;
+		margin: 0 auto;
+		border-radius: 50%;
+		filter: blur(100px);
+		position: absolute;
+		left: 50%;
+		bottom: -30; 
+		transform: translateX(-50%);
+		z-index: 10 !important;
+	}
+	}
+
+	.footer {
+		background-color: #0c0f14;
+		padding: 50px 0px;
+		text-align: center;
+		z-index: 11 !important; 
+		position: relative; 
+		display: flex;
+		align-items: center;
+		justify-content: space-evenly;
+		> h1 {
+			font-family: 'Nova Square', sans-serif;
+			font-size: 2rem;
+			color: #fff;
+			margin-bottom: 20px;
+			> span {
+				color: #314351;
+			}
+		}
+
+	}
+
 </style>
