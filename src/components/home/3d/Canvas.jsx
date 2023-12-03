@@ -1,15 +1,20 @@
-// src/App.js
-import React from 'react';
-import { Canvas, useLoader } from '@react-three/fiber';
+import React, { useRef } from 'react';
+import { Canvas, useLoader, useFrame } from '@react-three/fiber';
 import { OrbitControls } from '@react-three/drei';
 import { GLTFLoader } from 'three/addons/loaders/GLTFLoader';
 
-
 const MoonModel = () => {
-  const gltf = useLoader(GLTFLoader, '/public/moon.glb');
+  const gltf = useLoader(GLTFLoader, '/moon.glb');
+  const moonRef = useRef();
+
+  useFrame(() => {
+    if (moonRef.current) {
+      moonRef.current.rotation.y += 0.01;
+    }
+  });
 
   return (
-    <primitive object={gltf.scene} scale={[1, 1, 1]} castShadow receiveShadow />
+    <primitive object={gltf.scene} scale={[1, 1, 1]} castShadow receiveShadow ref={moonRef} />
   );
 };
 
