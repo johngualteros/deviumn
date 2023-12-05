@@ -59,7 +59,7 @@ export const CreatePost = () => {
                                         </div>
 
                                         <div className='option'>
-                                            <i className="uil uil-angle-double-up"></i>
+                                            <i className="uil uil-angle-double-up" onClick={() => addNewContent(TypeContent.SUBTITLE)}></i>
                                         </div>
                                     </div>
 
@@ -77,6 +77,14 @@ export const CreatePost = () => {
                                         <input type="text" id="content" onChange={(e) => onChangeContent(e, item.uuid)}/>
                                     </>
                                 )}
+
+                                {item.type === TypeContent.SUBTITLE && (
+                                    <>
+                                        <p className='badge'>{item.type}</p>
+                                        <input type="text" id="content" onChange={(e) => onChangeContent(e, item.uuid)}/>
+                                    </>
+                                
+                                )}
                             </div>
                         ))
                     }
@@ -91,6 +99,13 @@ export const CreatePost = () => {
                             <>
                                 <p className='badge'>{item.type}</p>
                                 <p>{item.content}</p>
+                            </>
+                        )}
+
+                        {item.type === TypeContent.SUBTITLE && (
+                            <>
+                                <p className='badge'>{item.type}</p>
+                                <h2>{item.content}</h2>
                             </>
                         )}
                     </div>

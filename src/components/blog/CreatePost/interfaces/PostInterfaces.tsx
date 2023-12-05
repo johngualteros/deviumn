@@ -3,7 +3,7 @@ export enum TypeContent {
     IMAGE = 'image',
     LINK = 'link',
     CODE = 'code',
-    TITLE = 'title'
+    SUBTITLE = 'subtitle'
 }
 
 export interface Content {

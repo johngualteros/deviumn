@@ -29,6 +29,16 @@ export const useContent = () => {
                     order: prevContent.length + 1
                 }
             ]);
+        } else if (type === TypeContent.SUBTITLE) {
+            setContent(prevContent => [
+                ...prevContent,
+                {
+                    uuid: uuidv4(),
+                    type: TypeContent.SUBTITLE,
+                    content: '',
+                    order: prevContent.length + 1
+                }
+            ]);
         }
         setIsOpenOptions(false);
     };
