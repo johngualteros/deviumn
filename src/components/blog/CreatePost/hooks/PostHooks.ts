@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import { TypeContent, type Content, type Form } from '../interfaces/PostInterfaces';
+import { v4 as uuidv4 } from 'uuid';
 
 export const useContent = () => {
     const [content, setContent] = useState<Content[]>([]);
@@ -22,6 +23,7 @@ export const useContent = () => {
             setContent(prevContent => [
                 ...prevContent,
                 {
+                    uuid: uuidv4(),
                     type: TypeContent.PARAGRAPH,
                     content: '',
                     order: prevContent.length + 1
@@ -30,6 +32,15 @@ export const useContent = () => {
         }
         setIsOpenOptions(false);
     };
+
+    const onChangeContent = (event: React.ChangeEvent<HTMLInputElement>, uuid: string) => {
+        setContent(prevContent => {
+            const index = prevContent.findIndex(item => item.uuid === uuid);
+            const newContent = [...prevContent];
+            newContent[index].content = event.target.value;
+            return newContent;
+        });
+    }
 
     const onTitleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
         setForm({
@@ -46,6 +57,7 @@ export const useContent = () => {
         openOptions,
         addNewContent,
         onTitleChange,
-        form
+        form,
+        onChangeContent
     };
 };

@@ -17,7 +17,7 @@ const containerStyle: React.CSSProperties = {
 
 export const CreatePost = () => {
 
-    const { isOpenOptions, openOptions, addNewContent, onTitleChange, form, content } = useContent();
+    const { isOpenOptions, openOptions, addNewContent, onTitleChange, form, content, onChangeContent } = useContent();
 
     return (
         <div style={containerStyle}>
@@ -67,6 +67,19 @@ export const CreatePost = () => {
                             )
                         }
                     </div>
+
+                    {
+                        content.map((item, index) => (
+                            <div key={index}>
+                                {item.type === TypeContent.PARAGRAPH && (
+                                    <>
+                                        <p className='badge'>{item.type}</p>
+                                        <input type="text" id="content" onChange={(e) => onChangeContent(e, item.uuid)}/>
+                                    </>
+                                )}
+                            </div>
+                        ))
+                    }
                 </div>
             </div>
             <div>

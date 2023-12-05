@@ -7,6 +7,7 @@ export enum TypeContent {
 }
 
 export interface Content {
+    uuid: string;
     type: TypeContent;
     content: string;
     order: number;
