@@ -105,3 +105,18 @@ button {
     background-color: rgba(0, 139, 255, 0.2);
 }
 
+
+.badge {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 5px;
+    border-radius: 5px;
+    background-color: rgba(0, 139, 255, 0.2);
+    color: #fff;
+    font-size: 0.8rem;
+    margin: 5px;
+    max-width: 100px;
+    border: 1px solid #008BFF;
+}
+

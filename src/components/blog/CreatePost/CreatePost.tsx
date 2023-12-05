@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
-import styles from './CreatePost.module.css';
+import './CreatePost.css';
 import { motion } from 'framer-motion';
+import { TypeContent, type Content, type Form } from './interfaces/PostInterfaces';
+import { useContent } from './hooks/PostHooks';
 
 const containerStyle: React.CSSProperties = {
     display: 'grid',
@@ -15,56 +17,48 @@ const containerStyle: React.CSSProperties = {
 
 export const CreatePost = () => {
 
-    const [isOpenOptions, setIsOpenOptions] = useState(false);
-
-    const handleSubmit = (event: any) => {
-        event.preventDefault();
-    }
-
-    const openOptions = () => {
-        setIsOpenOptions(!isOpenOptions);
-    }
+    const { isOpenOptions, openOptions, addNewContent, onTitleChange, form, content } = useContent();
 
     return (
         <div style={containerStyle}>
-            <div className={styles.creator}>
+            <div className='creator'>
                 <h1>Create A New Post</h1>
 
-                <div className={styles.form} onSubmit={handleSubmit}>
+                <div className='form'>
                     <div>
                         <label htmlFor="title">Title</label>
-                        <input type="text" id="title" />
+                        <input type="text" id="title" onChange={(e) => onTitleChange(e)}/>
                     </div>
 
                     <h3>
                         Content
                     </h3>
 
-                    <div className={styles.add_fields}>
+                    <div className='add_fields'>
                         <button  onClick={openOptions}>Add</button>
                         {
                             isOpenOptions && (
-                                <motion.div animate={{ x: 10 }} className={styles.options}>
+                                <motion.div animate={{ x: 10 }} className='options'>
                                     Select option
 
-                                    <div className={styles.option_container}>
-                                        <div className={styles.option}>
-                                            <i className="uil uil-paragraph"></i>
+                                    <div className='option_container'>
+                                        <div className='option'>
+                                            <i className="uil uil-paragraph" onClick={() => addNewContent(TypeContent.PARAGRAPH)}></i>
                                         </div>
 
-                                        <div className={styles.option}>
+                                        <div className='option'>
                                             <i className="uil uil-image"></i>
                                         </div>
 
-                                        <div className={styles.option}>
+                                        <div className='option'>
                                             <i className="uil uil-link"></i>
                                         </div>
 
-                                        <div className={styles.option}>
+                                        <div className='option'>
                                             <i className="uil uil-arrow"></i>
                                         </div>
 
-                                        <div className={styles.option}>
+                                        <div className='option'>
                                             <i className="uil uil-angle-double-up"></i>
                                         </div>
                                     </div>
@@ -76,10 +70,19 @@ export const CreatePost = () => {
                 </div>
             </div>
             <div>
+                <h1>{form.title}</h1>
+
+                {content.map((item, index) => (
+                    <div key={index}>
+                        {item.type === TypeContent.PARAGRAPH && (
+                            <>
+                                <p className='badge'>{item.type}</p>
+                                <p>{item.content}</p>
+                            </>
+                        )}
+                    </div>
+                ))}
             </div>
         </div>
     );
 };
-
-
-// ADD FRAMER MOTION FOR ANIMATION WHEN APPEARING THE OPTIONS
