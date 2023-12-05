@@ -20,12 +20,14 @@
     "framer-motion": "^10.16.14",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
+    "react-syntax-highlighter": "^15.5.0",
     "react-three-fiber": "^6.0.13",
     "three": "^0.159.0",
     "typescript": "^5.3.2",
     "uuid": "^9.0.1"
   },
   "devDependencies": {
+    "@types/react-syntax-highlighter": "^15.5.11",
     "@types/uuid": "^9.0.7"
   }
 }

@@ -3,6 +3,7 @@ import './CreatePost.css';
 import { motion } from 'framer-motion';
 import { TypeContent, type Content, type Form } from './interfaces/PostInterfaces';
 import { useContent } from './hooks/PostHooks';
+import { CodeComponent } from './components/CodeComponent';
 
 const containerStyle: React.CSSProperties = {
     display: 'grid',
@@ -88,6 +89,8 @@ export const CreatePost = () => {
                             </div>
                         ))
                     }
+
+                    <CodeComponent />
                 </div>
             </div>
             <div>
