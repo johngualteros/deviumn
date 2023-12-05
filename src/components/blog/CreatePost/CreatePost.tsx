@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import styles from './CreatePost.module.css';
+import { motion } from 'framer-motion';
 
 const containerStyle: React.CSSProperties = {
     display: 'grid',
@@ -43,7 +44,7 @@ export const CreatePost = () => {
                         <button  onClick={openOptions}>Add</button>
                         {
                             isOpenOptions && (
-                                <div className={styles.options}>
+                                <motion.div animate={{ x: 10 }} className={styles.options}>
                                     Select option
 
                                     <div className={styles.option_container}>
@@ -68,7 +69,7 @@ export const CreatePost = () => {
                                         </div>
                                     </div>
 
-                                </div>
+                                </motion.div>
                             )
                         }
                     </div>
