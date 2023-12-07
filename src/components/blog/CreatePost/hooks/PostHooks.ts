@@ -39,11 +39,21 @@ export const useContent = () => {
                     order: prevContent.length + 1
                 }
             ]);
+        } else if (type === TypeContent.CODE) {
+            setContent(prevContent => [
+                ...prevContent,
+                {
+                    uuid: uuidv4(),
+                    type: TypeContent.CODE,
+                    content: '',
+                    order: prevContent.length + 1
+                }
+            ]);
         }
         setIsOpenOptions(false);
     };
 
-    const onChangeContent = (event: React.ChangeEvent<HTMLInputElement>, uuid: string) => {
+    const onChangeContent = (event: any, uuid: string) => {
         setContent(prevContent => {
             const index = prevContent.findIndex(item => item.uuid === uuid);
             const newContent = [...prevContent];

@@ -56,7 +56,7 @@ export const CreatePost = () => {
                                         </div>
 
                                         <div className='option'>
-                                            <i className="uil uil-arrow"></i>
+                                            <i className="uil uil-arrow" onClick={() => addNewContent(TypeContent.CODE)}></i>
                                         </div>
 
                                         <div className='option'>
@@ -84,13 +84,17 @@ export const CreatePost = () => {
                                         <p className='badge'>{item.type}</p>
                                         <input type="text" id="content" onChange={(e) => onChangeContent(e, item.uuid)}/>
                                     </>
-                                
+                                )}
+
+                                {item.type === TypeContent.CODE && (
+                                    <>
+                                        <p className='badge'>{item.type}</p>
+                                        <textarea name="code" id="code" cols={30} rows={10} onChange={(e) => onChangeContent(e, item.uuid)}></textarea>
+                                    </>
                                 )}
                             </div>
                         ))
                     }
-
-                    <CodeComponent />
                 </div>
             </div>
             <div>
@@ -111,6 +115,15 @@ export const CreatePost = () => {
                                 <h2>{item.content}</h2>
                             </>
                         )}
+
+                        {
+                            item.type === TypeContent.CODE && (
+                                <>
+                                    <p className='badge'>{item.type}</p>
+                                    <CodeComponent codeString={item.content} />
+                                </>
+                            )
+                        }
                     </div>
                 ))}
             </div>
