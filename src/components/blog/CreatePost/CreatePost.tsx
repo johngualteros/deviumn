@@ -52,7 +52,7 @@ export const CreatePost = () => {
                                         </div>
 
                                         <div className='option'>
-                                            <i className="uil uil-link"></i>
+                                            <i className="uil uil-link" onClick={() => addNewContent(TypeContent.LINK)}></i>
                                         </div>
 
                                         <div className='option'>
@@ -92,6 +92,13 @@ export const CreatePost = () => {
                                         <textarea name="code" id="code" cols={30} rows={10} onChange={(e) => onChangeContent(e, item.uuid)}></textarea>
                                     </>
                                 )}
+
+                                {item.type === TypeContent.LINK && (
+                                    <>
+                                        <p className='badge'>{item.type}</p>
+                                        <input type="text" id="content" onChange={(e) => onChangeContent(e, item.uuid)}/>
+                                    </>
+                                )}
                             </div>
                         ))
                     }
@@ -121,6 +128,15 @@ export const CreatePost = () => {
                                 <>
                                     <p className='badge'>{item.type}</p>
                                     <CodeComponent codeString={item.content} />
+                                </>
+                            )
+                        }
+
+                        {
+                            item.type === TypeContent.LINK && (
+                                <>
+                                    <p className='badge'>{item.type}</p>
+                                    <a href={item.content} target='_blank'>{item.content}</a>
                                 </>
                             )
                         }

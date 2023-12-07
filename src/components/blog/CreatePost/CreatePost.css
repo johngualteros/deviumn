@@ -61,6 +61,17 @@ h3 {
     -webkit-text-fill-color: transparent;
 }
 
+a {
+    color: #fff;
+    font-size: 1rem;
+    font-weight: 400;
+    margin: 10px 0;
+    background: linear-gradient(90deg, #008BFF 0%, #00FFA3 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    text-decoration: underline;
+}
+
 .add_fields {
     display: flex;
     flex-direction: row;
