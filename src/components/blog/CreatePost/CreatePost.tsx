@@ -1,9 +1,10 @@
-import React, { useState } from 'react';
+import React, { useCallback, useState } from 'react';
 import './CreatePost.css';
 import { motion } from 'framer-motion';
 import { TypeContent, type Content, type Form } from './interfaces/PostInterfaces';
 import { useContent } from './hooks/PostHooks';
 import { CodeComponent } from './components/CodeComponent';
+import { useDropzone } from 'react-dropzone';
 
 const containerStyle: React.CSSProperties = {
     display: 'grid',
@@ -19,6 +20,15 @@ const containerStyle: React.CSSProperties = {
 export const CreatePost = () => {
 
     const { isOpenOptions, openOptions, addNewContent, onTitleChange, form, content, onChangeContent } = useContent();
+
+    const [imageURL, setImageURL] = useState('');
+    
+    const onDrop = useCallback((acceptedFiles: any) => {
+        const file = acceptedFiles[0];
+        setImageURL(URL.createObjectURL(file));
+    }, []);
+
+    const {getRootProps, getInputProps, isDragActive} = useDropzone({onDrop});
 
     return (
         <div style={containerStyle}>
@@ -48,7 +58,7 @@ export const CreatePost = () => {
                                         </div>
 
                                         <div className='option'>
-                                            <i className="uil uil-image"></i>
+                                            <i className="uil uil-image" onClick={() => addNewContent(TypeContent.IMAGE)}></i>
                                         </div>
 
                                         <div className='option'>
@@ -99,9 +109,30 @@ export const CreatePost = () => {
                                         <input type="text" id="content" onChange={(e) => onChangeContent(e, item.uuid)}/>
                                     </>
                                 )}
+
+                                {
+                                    item.type === TypeContent.IMAGE && (
+                                        <>
+                                            <p className='badge'>{item.type}</p>
+                                            <div {...getRootProps()} className='dropzone'>
+                                                <input {...getInputProps()} />
+                                                {
+                                                    isDragActive ? (
+                                                        <p>Drop the files here ...</p>
+                                                    ) : (
+                                                        <p>Drag 'n' drop some files here, or click to select files</p>
+                                                    )
+                                                }
+                                            </div>
+                                        </>
+                                    )
+                                }
+
+                                
                             </div>
                         ))
                     }
+                    
                 </div>
             </div>
             <div>
@@ -137,6 +168,14 @@ export const CreatePost = () => {
                                 <>
                                     <p className='badge'>{item.type}</p>
                                     <a href={item.content} target='_blank'>{item.content}</a>
+                                </>
+                            )
+                        }
+                        {
+                            item.type === TypeContent.IMAGE && (
+                                <>
+                                    <p className='badge'>{item.type}</p>
+                                    <img src={imageURL} alt="Imagen de post" width={400}/>
                                 </>
                             )
                         }

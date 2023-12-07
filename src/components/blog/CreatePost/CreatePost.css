@@ -72,6 +72,21 @@ a {
     text-decoration: underline;
 }
 
+.dropzone {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    width: 80%;
+    margin: 10px;
+    padding: 10px;
+    border-radius: 5px;
+    min-height: 200px;
+    background-color: #0c0f14;
+    border: 1px solid #008BFF;
+    border-style: dashed;
+}
+
 .add_fields {
     display: flex;
     flex-direction: row;

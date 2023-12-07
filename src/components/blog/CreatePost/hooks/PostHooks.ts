@@ -59,6 +59,16 @@ export const useContent = () => {
                     order: prevContent.length + 1
                 }
             ]);
+        } else if (type === TypeContent.IMAGE) {
+            setContent(prevContent => [
+                ...prevContent,
+                {
+                    uuid: uuidv4(),
+                    type: TypeContent.IMAGE,
+                    content: '',
+                    order: prevContent.length + 1
+                }
+            ]);
         }
         setIsOpenOptions(false);
     };
